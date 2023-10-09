@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
 
-#import tensorflow as tf
+import tensorflow as tf
 
-#model = tf.keras.models.load_model('keras_model.h5')
+model = tf.keras.models.load_model('keras_model.h5')
 
 video = cv2.VideoCapture(0)
 
@@ -13,7 +13,7 @@ while True:
 
     # Altere o dado de entrada:
     # 1. Redimensione a imagem
-    
+    img = cv2.resize(frame,(224,224))
 
     
 
@@ -25,7 +25,7 @@ while True:
     normalised_image = test_image/255.0
 
     # Preveja o resultado
-   
+    prediction = model.predict(normalised_image)
 
    
 
